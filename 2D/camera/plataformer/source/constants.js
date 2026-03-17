@@ -1,0 +1,19 @@
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Screen.getMode();
+const TILE_SIZE = 32;
+const MAP_W_PX = 1280;
+const MAP_TILES = MAP_W_PX / TILE_SIZE;
+const FLOOR_Y = SCREEN_HEIGHT - TILE_SIZE;
+
+const WORLD_LEFT_LIMIT = 0;
+const WORLD_RIGHT_LIMIT = SCREEN_WIDTH * 2;
+
+export {
+    TILE_SIZE,
+    MAP_TILES,
+    MAP_W_PX,
+    WORLD_LEFT_LIMIT,
+    WORLD_RIGHT_LIMIT,
+    FLOOR_Y,
+    SCREEN_HEIGHT,
+    SCREEN_WIDTH
+}
