@@ -16,7 +16,7 @@ class Square {
     }
 }
 
-const font = new Font();
+const font = new Font('default');
 font.scale = Math.fround(0.5);
 
 let start = Date.now();
@@ -98,6 +98,7 @@ const squares = examples.map(([name, fn]) => {
     return sq;
 });
 
+Screen.setParam(Screen.DEPTH_TEST_ENABLE, false);
 Screen.display(() => {
     for (let square of squares) {
         animate(square, square.fn);
