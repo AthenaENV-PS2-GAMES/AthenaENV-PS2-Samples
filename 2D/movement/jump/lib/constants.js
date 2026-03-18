@@ -1,0 +1,14 @@
+const GROUND_POSITION = 250;
+const JUMP_STRENGTH = 8;
+const GRAVITY = 0.5f;
+const MAX_Y_VELOCITY = 10;
+
+const PLAYER_ONE_PORT = 0;
+
+export {
+    GRAVITY,
+    GROUND_POSITION,
+    JUMP_STRENGTH,
+    MAX_Y_VELOCITY,
+    PLAYER_ONE_PORT
+}
