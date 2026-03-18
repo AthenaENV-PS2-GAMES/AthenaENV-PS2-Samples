@@ -6,6 +6,7 @@ const FLOOR_Y = SCREEN_HEIGHT - TILE_SIZE;
 
 const WORLD_LEFT_LIMIT = 0;
 const WORLD_RIGHT_LIMIT = SCREEN_WIDTH * 2;
+const PLAYER_ONE_PORT = 0;
 
 export {
     TILE_SIZE,
@@ -15,5 +16,6 @@ export {
     WORLD_RIGHT_LIMIT,
     FLOOR_Y,
     SCREEN_HEIGHT,
+    PLAYER_ONE_PORT,
     SCREEN_WIDTH
 }

@@ -1,7 +1,8 @@
 
-import Assets from "./source/assets.js";
+import Assets from "./lib/assets.js";
+import Gamepad from "./lib/gamepad.js";
 import Camera from "./source/camera.js";
-import { FLOOR_Y, MAP_TILES, SCREEN_WIDTH, TILE_SIZE } from './source/constants.js'
+import { FLOOR_Y, MAP_TILES, SCREEN_WIDTH, TILE_SIZE, WORLD_LEFT_LIMIT, WORLD_RIGHT_LIMIT } from './lib/constants.js'
 import Player from "./source/player.js";
 
 const tiles = Assets.image('./assets/tilemap.png')
@@ -45,16 +46,23 @@ function drawFloor(cam) {
     }
 }
 
-const cam = new Camera();
+const camera = new Camera();
 const player = new Player();
-const pad = Pads.get();
+
+camera.setBounds(
+    WORLD_LEFT_LIMIT,
+    WORLD_RIGHT_LIMIT,
+    0,
+    FLOOR_Y + TILE_SIZE 
+);
 
 Screen.setParam(Screen.DEPTH_TEST_ENABLE, false);
 Screen.display(() => {
-    pad.update();
-    player.update(pad);
-    cam.update(player.x + player.sprite.width / 2, player.y + player.sprite.height / 2);
+    Gamepad.update();
+    player.update();
 
-    drawFloor(cam);
-    player.draw(cam);
+    camera.update(player.sprite.x, player.sprite.y);
+
+    drawFloor(camera);
+    player.draw(camera.x, camera.y);
 });
